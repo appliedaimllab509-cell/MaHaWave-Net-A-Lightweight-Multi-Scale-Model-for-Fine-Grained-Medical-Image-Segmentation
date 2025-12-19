@@ -28,4 +28,16 @@ In recent years, U-Net–based transformer models have achieved remarkable succe
 The results, summarized in Table~\ref{SOTA_Performance}, show that MahaWave-Net achieves competitive performance on ISIC 2017 across four key metrics, Viz. mIoU, Accuracy (Acc), Precision (Pr), and Specificity (Spe), while surpassing existing methods on ISIC 2018 in terms of Accuracy and Specificity. In particular, the model attains 94.84\% accuracy and 96.50\% specificity on ISIC 2018, slightly outperforming the more complex VM-UNet (94.21\% accuracy, 96.13\% specificity) with improvements of 0.63\% in accuracy and 0.37\% in specificity. The performance improvements can be attributed to the use of multi-scale learnable wavelet layers, which enhance fine-grained feature extraction and preserve contextual information across multiple scales. Notably, MahaWave-Net delivers these results with substantially fewer parameters and reduced FLOPs compared to transformer- and mamba-based models. This synergy of accuracy and efficiency makes MahaWave-Net highly effective for medical image segmentation and particularly well-suited for deployment on resource-limited edge devices, where many SOTA models face challenges due to their complexity.
 
 ## Ablation Study
+### 1. Computational Complexity 
+Table below of Computational_Cost presents a comparison of the trainable parameters and floating-point operations (FLOPs) required by the proposed model and several state-of-the-art methods for medical image segmentation.
+| **Method**                | **Parameters (M)** | **FLOPs (G)** |
+| :------------------------ | :----------------: | :-----------: |
+| VM-UNet                   |        27.43       |      4.11     |
+| **MaHaWave-Net (Ours)** |      **4.98**      |    **1.73**   |
+| U-Net                     |        7.77        |     13.78     |
+| TransFuse                 |        26.27       |     11.53     |
+| UTNetV2                   |        12.80       |     15.50     |
+| SANet                     |        23.90       |      5.99     |
+| UNet++                    |        9.16        |     34.90     |
 
+Among the compared models, VM-UNet exhibits the highest parameter count and subsequently, UNet++ exhibits the highest FLOPs count. In contrast, the proposed model requires the least computational resources, with only 4.98 million trainable parameters and 1.73 Giga FLOPs. It specifically reduces the number of parameters and FLOPs by factors of 5.55 and 2.37, respectively, compared to the best-performing VM-UNet model. 
