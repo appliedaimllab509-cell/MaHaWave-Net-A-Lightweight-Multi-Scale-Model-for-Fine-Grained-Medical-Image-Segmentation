@@ -23,4 +23,4 @@ In recent years, U-Net–based transformer models have achieved remarkable succe
 | TransFuse                 |      80.63     |     89.27     |     94.66     |     95.74     |   **91.28**   |
 | MALUNet                   |      80.25     |     89.04     |     94.62     |     96.19     |     89.74     |
 | VM-UNet                   |    **81.35**   |   **89.71**   |     94.21     |     96.13     |     91.12     |
-| **⭐ MaHaWave-Net (Ours)** |    **80.88**   |   **89.43**   |   **94.84**   |   **96.50**   |   **89.66**   |
+| **MaHaWave-Net (Ours)** |    **80.88**   |   **89.43**   |   **94.84**   |   **96.50**   |   **89.66**   |
