@@ -44,7 +44,7 @@ Among the compared models, VM-UNet exhibits the highest parameter count and subs
 
 ### 2. Impact  of Levels 
 We evaluated six different values of this parameter, Viz.~12, 18, 24, 30, 36, and 42. The results clearly indicate that increasing the number of levels enhances the performance of MaHaWave-Net, as it enables the model to capture richer multi-scale features for fine-grained image segmentation. The best results are achieved when the level parameter is set to 42 for both datasets.
-#### A. on ISIC-17 Dataset
+#### I. on ISIC-17 Dataset
 | **Level** | **mIoU (%)** | **DSC (%)** | **Acc (%)** | **Spe (%)** | **Sen (%)** |
 | :-------: | :----------: | :---------: | :---------: | :---------: | :---------: |
 |     12    |     77.65    |    87.42    |    95.71    |    97.09    |    88.88    |
@@ -53,7 +53,7 @@ We evaluated six different values of this parameter, Viz.~12, 18, 24, 30, 36, an
 |     30    |     78.98    |    88.25    |    96.12    |    97.93    |    87.08    |
 |     36    |     79.37    |    88.50    |  **96.27**  |  **98.43**  |    85.56    |
 |   **42**  |   **79.88**  |  **88.82**  |    96.26    |    97.80    |  **88.61**  |
-#### A. on ISIC-18 Dataset
+#### II. on ISIC-18 Dataset
 | **Level** | **mIoU (%)** | **DSC (%)** | **Acc (%)** | **Spe (%)** | **Sen (%)** |
 | :-------: | :----------: | :---------: | :---------: | :---------: | :---------: |
 |     12    |     80.44    |    89.16    |    94.76    |  **96.82**  |    88.38    |
@@ -63,3 +63,26 @@ We evaluated six different values of this parameter, Viz.~12, 18, 24, 30, 36, an
 |     36    |     79.18    |    88.38    |    94.25    |    95.69    |    89.77    |
 |   **42**  |   **80.88**  |  **89.43**  |  **94.84**  |    96.50    |    89.66    |
 
+### 2. Impact  of Encoder-Decoder Depth 
+To examine variations in performance metrics, we employ a strong encoder–decoder configuration in the asymmetric MaHaWave-Net design. Following \cite{ruan2024vm}, an ablation study is conducted, with results summarized in Table \ref{Ablation_Encoder}.~The model achieves optimal performance with the encoder–decoder configuration $[2,2,2,1]$ across both datasets.~However, when scaled to a larger asymmetric configuration of $[2,2,9,2]-[2,9,2,2]$, performance consistently declines, indicating that excessive scaling reduces model effectiveness. For the ablation study, the number of heads and levels is fixed at 16 and 42, respectively, and BceDice Loss is employed as the loss function.
+#### I. on ISIC-17 Dataset
+| **Metric**      | **[2,2,2,1]** | **[2,2,2,2]** | **[2,2,4,2]** | **[2,2,9,2]** |
+| :-------------- | :-----------: | :-----------: | :-----------: | :-----------: |
+| mIoU (%)        |   **79.88**   |     78.88     |     78.90     |     79.01     |
+| DSC (%)         |   **88.82**   |     88.19     |     88.21     |     88.27     |
+| Acc (%)         |   **96.26**   |     96.09     |     96.03     |     96.09     |
+| Precision (%)   |     89.02     |   **89.32**   |     87.89     |     88.80     |
+| Specificity (%) |     97.80     |   **97.90**   |     97.54     |     97.77     |
+| Sensitivity (%) |   **88.61**   |     87.09     |     88.52     |     87.75     |
+| HD95 ↓          |      747      |      810      |      795      |    **663**    |
+
+#### II. on ISIC-18 Dataset
+| **Metric**      | **[2,2,2,1]** | **[2,2,2,2]** | **[2,2,4,2]** | **[2,2,9,2]** |
+| :-------------- | :-----------: | :-----------: | :-----------: | :-----------: |
+| mIoU (%)        |   **80.88**   |     79.50     |     79.92     |     80.33     |
+| DSC (%)         |   **89.43**   |     88.57     |     88.84     |     89.09     |
+| Acc (%)         |   **94.84**   |     94.67     |     94.51     |     94.77     |
+| Precision (%)   |     89.20     |   **92.63**   |     87.95     |     90.53     |
+| Specificity (%) |     96.50     |   **97.82**   |     96.04     |     97.04     |
+| Sensitivity (%) |     89.66     |     84.86     |   **89.74**   |     87.69     |
+| HD95 ↓          |    **282**    |      516      |      531      |      298      |
