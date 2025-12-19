@@ -4,7 +4,7 @@
 In recent years, U-Net–based transformer models have achieved remarkable success in medical image segmentation by effectively capturing hierarchical features. Visual state space models have recently emerged as an efficient alternative, offering competitive accuracy with linear complexity. However, both transformer-based and Mamba-based U-Nets suffer from high computational complexity in terms of model parameters and floating-point operations. Inspired by the strengths of both approaches, we propose MaHaWave-Net, a novel and lightweight U-Net-like architecture combining Mamba state space blocks, newly designed learnable Haar Wavelet layers, and MLP layers. The proposed learnable wavelet layers efficiently capture fine-grained information by extracting approximation and detail coefficients across multiple levels, mitigating information loss and serving as a linear-complexity alternative module to the transformer self-attention module. Extensive experiments on ISIC 2017 and ISIC 2018 datasets illustrate that MaHaWave-Net consistently outperforms existing methods. Compared to U-Net, it achieves Dice/IoU improvements of 2.09\% and 3.33\% on ISIC 2017 and 1.78\% and 2.88\% on ISIC 2018, with significantly reduced computational cost, establishing its effectiveness as a lightweight medical image segmentation model.
 
 ## Result 
-### Table-1: Performance Comparison with SOTA on ISIC-17 Dataset 
+### Performance Comparison with SOTA on ISIC-17 Dataset 
 | **Model**                 | **mIoU ↑ (%)** | **DSC ↑ (%)** | **Acc ↑ (%)** | **Spe ↑ (%)** | **Sen ↑ (%)** |
 | :------------------------ | :------------: | :-----------: | :-----------: | :-----------: | :-----------: |
 | U-Net                     |      76.98     |     86.99     |     95.65     |     97.43     |     86.82     |
@@ -14,7 +14,7 @@ In recent years, U-Net–based transformer models have achieved remarkable succe
 | VM-UNet                   |    **80.23**   |   **89.03**   |   **96.29**   |     97.58     |   **89.90**   |
 | **MaHaWave-Net (Ours)** |    **79.88**   |   **88.82**   |   **96.26**   |   **97.80**   |   **88.61**   |
 
-### Table-2: Performance Comparison with SOTA on ISIC-18 Dataset 
+### Performance Comparison with SOTA on ISIC-18 Dataset 
 | **Model**                 | **mIoU ↑ (%)** | **DSC ↑ (%)** | **Acc ↑ (%)** | **Spe ↑ (%)** | **Sen ↑ (%)** |
 | :------------------------ | :------------: | :-----------: | :-----------: | :-----------: | :-----------: |
 | UNet++                    |      78.31     |     87.83     |     94.02     |     95.75     |     88.65     |
@@ -41,3 +41,25 @@ Table below of Computational_Cost presents a comparison of the trainable paramet
 | UNet++                    |        9.16        |     34.90     |
 
 Among the compared models, VM-UNet exhibits the highest parameter count and subsequently, UNet++ exhibits the highest FLOPs count. In contrast, the proposed model requires the least computational resources, with only 4.98 million trainable parameters and 1.73 Giga FLOPs. It specifically reduces the number of parameters and FLOPs by factors of 5.55 and 2.37, respectively, compared to the best-performing VM-UNet model. 
+
+### 2. Impact  of Levels 
+We evaluated six different values of this parameter, Viz.~12, 18, 24, 30, 36, and 42. The results clearly indicate that increasing the number of levels enhances the performance of MaHaWave-Net, as it enables the model to capture richer multi-scale features for fine-grained image segmentation. The best results are achieved when the level parameter is set to 42 for both datasets.
+#### A. on ISIC-17 Dataset
+| **Level** | **mIoU (%)** | **DSC (%)** | **Acc (%)** | **Spe (%)** | **Sen (%)** |
+| :-------: | :----------: | :---------: | :---------: | :---------: | :---------: |
+|     12    |     77.65    |    87.42    |    95.71    |    97.09    |    88.88    |
+|     18    |     78.38    |    87.88    |    95.99    |    97.86    |    86.72    |
+|     24    |     78.71    |    88.08    |    96.05    |    97.83    |    87.18    |
+|     30    |     78.98    |    88.25    |    96.12    |    97.93    |    87.08    |
+|     36    |     79.37    |    88.50    |  **96.27**  |  **98.43**  |    85.56    |
+|   **42**  |   **79.88**  |  **88.82**  |    96.26    |    97.80    |  **88.61**  |
+#### A. on ISIC-18 Dataset
+| **Level** | **mIoU (%)** | **DSC (%)** | **Acc (%)** | **Spe (%)** | **Sen (%)** |
+| :-------: | :----------: | :---------: | :---------: | :---------: | :---------: |
+|     12    |     80.44    |    89.16    |    94.76    |  **96.82**  |    88.38    |
+|     18    |     79.68    |    88.69    |    94.40    |    95.76    |  **90.16**  |
+|     24    |     79.91    |    88.83    |    94.59    |    96.60    |    88.34    |
+|     30    |     79.39    |    88.51    |    94.34    |    95.91    |    89.48    |
+|     36    |     79.18    |    88.38    |    94.25    |    95.69    |    89.77    |
+|   **42**  |   **80.88**  |  **89.43**  |  **94.84**  |    96.50    |    89.66    |
+
