@@ -39,13 +39,13 @@ The .whl files of causal_conv1d and mamba_ssm could be found here. {[Baidu](http
     - masks
       - .png
 
-## Proposed Framework
+## 2. Proposed Framework
 ![MaHaWave-Net Architecture](/home/user/Downloads/abhi_sachin/framework_architec/MaHaWaveNet)
 
 *Figure 1: Overview of the proposed MaHaWave-Net architecture.*
 
 
-## Result 
+## 3. Result 
 ### Performance Comparison with SOTA on ISIC-17 Dataset 
 | **Model**                 | **mIoU ↑ (%)** | **DSC ↑ (%)** | **Acc ↑ (%)** | **Spe ↑ (%)** | **Sen ↑ (%)** |
 | :------------------------ | :------------: | :-----------: | :-----------: | :-----------: | :-----------: |
@@ -69,7 +69,7 @@ The .whl files of causal_conv1d and mamba_ssm could be found here. {[Baidu](http
 
 The results, summarized in Table~\ref{SOTA_Performance}, show that MahaWave-Net achieves competitive performance on ISIC 2017 across four key metrics, Viz. mIoU, Accuracy (Acc), Precision (Pr), and Specificity (Spe), while surpassing existing methods on ISIC 2018 in terms of Accuracy and Specificity. In particular, the model attains 94.84\% accuracy and 96.50\% specificity on ISIC 2018, slightly outperforming the more complex VM-UNet (94.21\% accuracy, 96.13\% specificity) with improvements of 0.63\% in accuracy and 0.37\% in specificity. The performance improvements can be attributed to the use of multi-scale learnable wavelet layers, which enhance fine-grained feature extraction and preserve contextual information across multiple scales. Notably, MahaWave-Net delivers these results with substantially fewer parameters and reduced FLOPs compared to transformer- and mamba-based models. This synergy of accuracy and efficiency makes MahaWave-Net highly effective for medical image segmentation and particularly well-suited for deployment on resource-limited edge devices, where many SOTA models face challenges due to their complexity.
 
-## Ablation Study
+## 4. Ablation Study
 ### 1. Computational Complexity 
 Table below of Computational_Cost presents a comparison of the trainable parameters and floating-point operations (FLOPs) required by the proposed model and several state-of-the-art methods for medical image segmentation.
 | **Method**                | **Parameters (M)** | **FLOPs (G)** |
@@ -130,13 +130,13 @@ To examine variations in performance metrics, we employ a strong encoder–decod
 | HD95 ↓          |    **282**    |      516      |      531      |      298      |
 
 
-## 2. Prepare the pre_trained weights
+## 5. Prepare the pre_trained weights
 
 - The weights of the pre-trained VMamba could be downloaded from [Baidu](https://pan.baidu.com/s/1ci_YvPPEiUT2bIIK5x8Igw?pwd=wnyy) or [GoogleDrive](https://drive.google.com/drive/folders/1ZJjc7sdyd-6KfI7c8R6rDN8bcTz3QkCx?usp=sharing). After that, the pre-trained weights should be stored in './pretrained_weights/'.
 
 
 
-## 3. Train the MaHaWave-Net
+## 6. Train the MaHaWave-Net
 ```bash
 cd MaHaWave-Net
 python train.py  # Train and test MaHaWave-Net on the ISIC17 or ISIC18 dataset.
@@ -152,7 +152,7 @@ python train.py  # Train and test MaHaWave-Net on the ISIC17 or ISIC18 dataset.
 - **Execute the script**:  
    After setting the above parameters, you can run `train.py`.
 
-## 4. Obtain the outputs
+## 7. Obtain the outputs
 - After trianing, you could obtain the results in './results/'
 
 
