@@ -1,7 +1,43 @@
 # MaHaWave-Net-A-Lightweight-Multi-Scale-Model-for-Fine-Grained-Medical-Image-Segmentation
+Code will be resealing soon..!!
 
 ## Abstract
 In recent years, U-Net–based transformer models have achieved remarkable success in medical image segmentation by effectively capturing hierarchical features. Visual state space models have recently emerged as an efficient alternative, offering competitive accuracy with linear complexity. However, both transformer-based and Mamba-based U-Nets suffer from high computational complexity in terms of model parameters and floating-point operations. Inspired by the strengths of both approaches, we propose MaHaWave-Net, a novel and lightweight U-Net-like architecture combining Mamba state space blocks, newly designed learnable Haar Wavelet layers, and MLP layers. The proposed learnable wavelet layers efficiently capture fine-grained information by extracting approximation and detail coefficients across multiple levels, mitigating information loss and serving as a linear-complexity alternative module to the transformer self-attention module. Extensive experiments on ISIC 2017 and ISIC 2018 datasets illustrate that MaHaWave-Net consistently outperforms existing methods. Compared to U-Net, it achieves Dice/IoU improvements of 2.09\% and 3.33\% on ISIC 2017 and 1.78\% and 2.88\% on ISIC 2018, with significantly reduced computational cost, establishing its effectiveness as a lightweight medical image segmentation model.
+
+## 0. Main Environments
+```bash
+conda create -n vmunet python=3.8
+conda activate vmunet
+pip install torch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu117
+pip install packaging
+pip install timm==0.4.12
+pip install pytest chardet yacs termcolor
+pip install submitit tensorboardX
+pip install triton==2.0.0
+pip install causal_conv1d==1.0.0  # causal_conv1d-1.0.0+cu118torch1.13cxx11abiFALSE-cp38-cp38-linux_x86_64.whl
+pip install mamba_ssm==1.0.1  # mmamba_ssm-1.0.1+cu118torch1.13cxx11abiFALSE-cp38-cp38-linux_x86_64.whl
+pip install scikit-learn matplotlib thop h5py SimpleITK scikit-image medpy yacs
+```
+The .whl files of causal_conv1d and mamba_ssm could be found here. {[Baidu](https://pan.baidu.com/s/1Tibn8Xh4FMwj0ths8Ufazw?pwd=uu5k) or [GoogleDrive](https://drive.google.com/drive/folders/1ZJjc7sdyd-6KfI7c8R6rDN8bcTz3QkCx?usp=sharing)}
+
+## 1. Prepare the dataset
+
+### ISIC datasets
+- The ISIC17 and ISIC18 datasets, divided into a 7:3 ratio, can be found here {[Baidu](https://pan.baidu.com/s/1Y0YupaH21yDN5uldl7IcZA?pwd=dybm)}. 
+
+- After downloading the datasets, you are supposed to put them into './data/isic17/' and './data/isic18/', and the file format reference is as follows. (take the ISIC17 dataset as an example.)
+
+- './data/isic17/'
+  - train
+    - images
+      - .png
+    - masks
+      - .png
+  - val
+    - images
+      - .png
+    - masks
+      - .png
 
 ## Proposed Framework
 ![MaHaWave-Net Architecture](/home/user/Downloads/abhi_sachin/framework_architec/MaHaWaveNet)
@@ -92,3 +128,32 @@ To examine variations in performance metrics, we employ a strong encoder–decod
 | Specificity (%) |     96.50     |   **97.82**   |     96.04     |     97.04     |
 | Sensitivity (%) |     89.66     |     84.86     |   **89.74**   |     87.69     |
 | HD95 ↓          |    **282**    |      516      |      531      |      298      |
+
+
+## 2. Prepare the pre_trained weights
+
+- The weights of the pre-trained VMamba could be downloaded from [Baidu](https://pan.baidu.com/s/1ci_YvPPEiUT2bIIK5x8Igw?pwd=wnyy) or [GoogleDrive](https://drive.google.com/drive/folders/1ZJjc7sdyd-6KfI7c8R6rDN8bcTz3QkCx?usp=sharing). After that, the pre-trained weights should be stored in './pretrained_weights/'.
+
+
+
+## 3. Train the MaHaWave-Net
+```bash
+cd MaHaWave-Net
+python train.py  # Train and test MaHaWave-Net on the ISIC17 or ISIC18 dataset.
+```
+
+**NOTE**: If you want to use the trained checkpoint for inference testing only and save the corresponding test images, you can follow these steps:  
+
+- **In `config_setting`**:  
+   - Set the parameter `only_test_and_save_figs` to `True`.  
+   - Fill in the path of the trained checkpoint in `best_ckpt_path`.  
+   - Specify the save path for test images in `img_save_path`.  
+
+- **Execute the script**:  
+   After setting the above parameters, you can run `train.py`.
+
+## 4. Obtain the outputs
+- After trianing, you could obtain the results in './results/'
+
+
+
