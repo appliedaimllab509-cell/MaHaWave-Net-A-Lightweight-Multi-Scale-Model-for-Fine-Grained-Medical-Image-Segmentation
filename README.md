@@ -62,16 +62,12 @@ The results, summarized in Table.1, show that MahaWave-Net achieves competitive 
 
 ## 4. Ablation Study
 ### 1. Computational Complexity 
-Table below of Computational_Cost presents a comparison of the trainable parameters and floating-point operations (FLOPs) required by the proposed model and several state-of-the-art methods for medical image segmentation.
-| **Method**                | **Parameters (M)** | **FLOPs (G)** |
-| :------------------------ | :----------------: | :-----------: |
-| VM-UNet                   |        27.43       |      4.11     |
-| **MaHaWave-Net (Ours)** |      **4.98**      |    **1.73**   |
-| U-Net                     |        7.77        |     13.78     |
-| TransFuse                 |        26.27       |     11.53     |
-| UTNetV2                   |        12.80       |     15.50     |
-| SANet                     |        23.90       |      5.99     |
-| UNet++                    |        9.16        |     34.90     |
+Table.2 below of Computational_Cost presents a comparison of the trainable parameters and floating-point operations (FLOPs) required by the proposed model and several state-of-the-art methods for medical image segmentation.
+<p align="center">
+  <img src="assets/computational_cost.png" 
+       alt="Performance Comparison With SOTA"
+       width=700">
+</p>
 
 Among the compared models, VM-UNet exhibits the highest parameter count and subsequently, UNet++ exhibits the highest FLOPs count. In contrast, the proposed model requires the least computational resources, with only 4.98 million trainable parameters and 1.73 Giga FLOPs. It specifically reduces the number of parameters and FLOPs by factors of 5.55 and 2.37, respectively, compared to the best-performing VM-UNet model. 
 
@@ -84,7 +80,7 @@ We evaluated six different values of this parameter, Viz.~12, 18, 24, 30, 36, an
 </p>
 
 ### 2. Impact  of Encoder-Decoder Depth 
-To examine variations in performance metrics, we employ a strong encoder–decoder configuration in the asymmetric MaHaWave-Net design. Following \cite{ruan2024vm}, an ablation study is conducted, with results summarized in Table \ref{Ablation_Encoder}.~The model achieves optimal performance with the encoder–decoder configuration $[2,2,2,1]$ across both datasets.~However, when scaled to a larger asymmetric configuration of $[2,2,9,2]-[2,9,2,2]$, performance consistently declines, indicating that excessive scaling reduces model effectiveness. For the ablation study, the number of heads and levels is fixed at 16 and 42, respectively, and BceDice Loss is employed as the loss function.
+To examine variations in performance metrics, we employ a strong encoder–decoder configuration in the asymmetric MaHaWave-Net design. Following \cite{ruan2024vm}, an ablation study is conducted, with results summarized in Table.4.~The model achieves optimal performance with the encoder–decoder configuration $[2,2,2,1]$ across both datasets.~However, when scaled to a larger asymmetric configuration of $[2,2,9,2]-[2,9,2,2]$, performance consistently declines, indicating that excessive scaling reduces model effectiveness. For the ablation study, the number of heads and levels is fixed at 16 and 42, respectively, and BceDice Loss is employed as the loss function.
 <p align="center">
   <img src="assets/on_ED_depth.png" 
        alt="Performance Comparison With SOTA"
