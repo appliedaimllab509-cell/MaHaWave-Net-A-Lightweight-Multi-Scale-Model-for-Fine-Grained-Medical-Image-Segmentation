@@ -56,10 +56,8 @@ The .whl files of causal_conv1d and mamba_ssm could be found here. {[Baidu](http
 <p align="center">
   <img src="assets/main_table.png" 
        alt="Performance Comparison With SOTA"
-       width="500">
+       width=800">
 </p>
-*Table 1 : Performance Comparison With SOTA.*
-
 The results, summarized in Table~\ref{SOTA_Performance}, show that MahaWave-Net achieves competitive performance on ISIC 2017 across four key metrics, Viz. mIoU, Accuracy (Acc), Precision (Pr), and Specificity (Spe), while surpassing existing methods on ISIC 2018 in terms of Accuracy and Specificity. In particular, the model attains 94.84\% accuracy and 96.50\% specificity on ISIC 2018, slightly outperforming the more complex VM-UNet (94.21\% accuracy, 96.13\% specificity) with improvements of 0.63\% in accuracy and 0.37\% in specificity. The performance improvements can be attributed to the use of multi-scale learnable wavelet layers, which enhance fine-grained feature extraction and preserve contextual information across multiple scales. Notably, MahaWave-Net delivers these results with substantially fewer parameters and reduced FLOPs compared to transformer- and mamba-based models. This synergy of accuracy and efficiency makes MahaWave-Net highly effective for medical image segmentation and particularly well-suited for deployment on resource-limited edge devices, where many SOTA models face challenges due to their complexity.
 
 ## 4. Ablation Study
