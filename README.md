@@ -58,7 +58,7 @@ The .whl files of causal_conv1d and mamba_ssm could be found here. {[Baidu](http
        alt="Performance Comparison With SOTA"
        width=800">
 </p>
-The results, summarized in Table~\ref{SOTA_Performance}, show that MahaWave-Net achieves competitive performance on ISIC 2017 across four key metrics, Viz. mIoU, Accuracy (Acc), Precision (Pr), and Specificity (Spe), while surpassing existing methods on ISIC 2018 in terms of Accuracy and Specificity. In particular, the model attains 94.84\% accuracy and 96.50\% specificity on ISIC 2018, slightly outperforming the more complex VM-UNet (94.21\% accuracy, 96.13\% specificity) with improvements of 0.63\% in accuracy and 0.37\% in specificity. The performance improvements can be attributed to the use of multi-scale learnable wavelet layers, which enhance fine-grained feature extraction and preserve contextual information across multiple scales. Notably, MahaWave-Net delivers these results with substantially fewer parameters and reduced FLOPs compared to transformer- and mamba-based models. This synergy of accuracy and efficiency makes MahaWave-Net highly effective for medical image segmentation and particularly well-suited for deployment on resource-limited edge devices, where many SOTA models face challenges due to their complexity.
+The results, summarized in Table.1, show that MahaWave-Net achieves competitive performance on ISIC 2017 across four key metrics, Viz. mIoU, Accuracy (Acc), Precision (Pr), and Specificity (Spe), while surpassing existing methods on ISIC 2018 in terms of Accuracy and Specificity. In particular, the model attains 94.84\% accuracy and 96.50\% specificity on ISIC 2018, slightly outperforming the more complex VM-UNet (94.21\% accuracy, 96.13\% specificity) with improvements of 0.63\% in accuracy and 0.37\% in specificity. The performance improvements can be attributed to the use of multi-scale learnable wavelet layers, which enhance fine-grained feature extraction and preserve contextual information across multiple scales. Notably, MahaWave-Net delivers these results with substantially fewer parameters and reduced FLOPs compared to transformer- and mamba-based models. This synergy of accuracy and efficiency makes MahaWave-Net highly effective for medical image segmentation and particularly well-suited for deployment on resource-limited edge devices, where many SOTA models face challenges due to their complexity.
 
 ## 4. Ablation Study
 ### 1. Computational Complexity 
@@ -77,48 +77,19 @@ Among the compared models, VM-UNet exhibits the highest parameter count and subs
 
 ### 2. Impact  of Levels 
 We evaluated six different values of this parameter, Viz.~12, 18, 24, 30, 36, and 42. The results clearly indicate that increasing the number of levels enhances the performance of MaHaWave-Net, as it enables the model to capture richer multi-scale features for fine-grained image segmentation. The best results are achieved when the level parameter is set to 42 for both datasets.
-#### I. on ISIC-17 Dataset
-| **Level** | **mIoU (%)** | **DSC (%)** | **Acc (%)** | **Spe (%)** | **Sen (%)** |
-| :-------: | :----------: | :---------: | :---------: | :---------: | :---------: |
-|     12    |     77.65    |    87.42    |    95.71    |    97.09    |    88.88    |
-|     18    |     78.38    |    87.88    |    95.99    |    97.86    |    86.72    |
-|     24    |     78.71    |    88.08    |    96.05    |    97.83    |    87.18    |
-|     30    |     78.98    |    88.25    |    96.12    |    97.93    |    87.08    |
-|     36    |     79.37    |    88.50    |  **96.27**  |  **98.43**  |    85.56    |
-|   **42**  |   **79.88**  |  **88.82**  |    96.26    |    97.80    |  **88.61**  |
-#### II. on ISIC-18 Dataset
-| **Level** | **mIoU (%)** | **DSC (%)** | **Acc (%)** | **Spe (%)** | **Sen (%)** |
-| :-------: | :----------: | :---------: | :---------: | :---------: | :---------: |
-|     12    |     80.44    |    89.16    |    94.76    |  **96.82**  |    88.38    |
-|     18    |     79.68    |    88.69    |    94.40    |    95.76    |  **90.16**  |
-|     24    |     79.91    |    88.83    |    94.59    |    96.60    |    88.34    |
-|     30    |     79.39    |    88.51    |    94.34    |    95.91    |    89.48    |
-|     36    |     79.18    |    88.38    |    94.25    |    95.69    |    89.77    |
-|   **42**  |   **80.88**  |  **89.43**  |  **94.84**  |    96.50    |    89.66    |
+<p align="center">
+  <img src="assets/on_level.png" 
+       alt="Performance Comparison With SOTA"
+       width=700">
+</p>
 
 ### 2. Impact  of Encoder-Decoder Depth 
 To examine variations in performance metrics, we employ a strong encoder–decoder configuration in the asymmetric MaHaWave-Net design. Following \cite{ruan2024vm}, an ablation study is conducted, with results summarized in Table \ref{Ablation_Encoder}.~The model achieves optimal performance with the encoder–decoder configuration $[2,2,2,1]$ across both datasets.~However, when scaled to a larger asymmetric configuration of $[2,2,9,2]-[2,9,2,2]$, performance consistently declines, indicating that excessive scaling reduces model effectiveness. For the ablation study, the number of heads and levels is fixed at 16 and 42, respectively, and BceDice Loss is employed as the loss function.
-#### I. on ISIC-17 Dataset
-| **Metric**      | **[2,2,2,1]** | **[2,2,2,2]** | **[2,2,4,2]** | **[2,2,9,2]** |
-| :-------------- | :-----------: | :-----------: | :-----------: | :-----------: |
-| mIoU (%)        |   **79.88**   |     78.88     |     78.90     |     79.01     |
-| DSC (%)         |   **88.82**   |     88.19     |     88.21     |     88.27     |
-| Acc (%)         |   **96.26**   |     96.09     |     96.03     |     96.09     |
-| Precision (%)   |     89.02     |   **89.32**   |     87.89     |     88.80     |
-| Specificity (%) |     97.80     |   **97.90**   |     97.54     |     97.77     |
-| Sensitivity (%) |   **88.61**   |     87.09     |     88.52     |     87.75     |
-| HD95 ↓          |      747      |      810      |      795      |    **663**    |
-
-#### II. on ISIC-18 Dataset
-| **Metric**      | **[2,2,2,1]** | **[2,2,2,2]** | **[2,2,4,2]** | **[2,2,9,2]** |
-| :-------------- | :-----------: | :-----------: | :-----------: | :-----------: |
-| mIoU (%)        |   **80.88**   |     79.50     |     79.92     |     80.33     |
-| DSC (%)         |   **89.43**   |     88.57     |     88.84     |     89.09     |
-| Acc (%)         |   **94.84**   |     94.67     |     94.51     |     94.77     |
-| Precision (%)   |     89.20     |   **92.63**   |     87.95     |     90.53     |
-| Specificity (%) |     96.50     |   **97.82**   |     96.04     |     97.04     |
-| Sensitivity (%) |     89.66     |     84.86     |   **89.74**   |     87.69     |
-| HD95 ↓          |    **282**    |      516      |      531      |      298      |
+<p align="center">
+  <img src="assets/on_ED_depth.png" 
+       alt="Performance Comparison With SOTA"
+       width=700">
+</p>
 
 ### 3. Impact  Isolating MLHW with Skip and Without Skip
 
