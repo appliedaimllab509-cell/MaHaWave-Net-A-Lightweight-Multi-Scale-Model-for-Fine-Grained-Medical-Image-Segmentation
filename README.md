@@ -136,6 +136,8 @@ To examine variations in performance metrics, we employ a strong encoder–decod
 | Sensitivity (%) |     89.66     |     84.86     |   **89.74**   |     87.69     |
 | HD95 ↓          |    **282**    |      516      |      531      |      298      |
 
+### 3. Impact  Isolating MLHW with Skip and Without Skip
+
 
 ## 5. Prepare the pre_trained weights
 
