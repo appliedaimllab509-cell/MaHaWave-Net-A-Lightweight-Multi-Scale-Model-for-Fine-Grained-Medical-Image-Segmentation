@@ -42,8 +42,11 @@ The .whl files of causal_conv1d and mamba_ssm could be found here. {[Baidu](http
 ## 2. Proposed Framework
 ![MaHaWave-Net Architecture](assets/MVM_Unet-MahWave_Net_Architecture.drawio.png)
 
-*Figure 1: Overview of the proposed MaHaWave-Net architecture.*
+*Figure 1 (a): Overview of the proposed MaHaWave-Net architecture.*
 
+![Multi-scale Learnable Haar Wavelet Block](assets/MVM_Unet-Haar.drawio.png)
+
+*Figure 1 (b): illustrates the architecture of the MLHW block.*
 
 ## 3. Result 
 ### Performance Comparison with SOTA on ISIC-17 Dataset 
