@@ -44,7 +44,7 @@ The .whl files of causal_conv1d and mamba_ssm could be found here. {[Baidu](http
 
 *Figure 1 (a): Overview of the proposed MaHaWave-Net architecture.*
 
-![Multi-scale Learnable Haar Wavelet Block](assets/MVM_Unet-Haar.drawio.png)
+![Multi-scale Learnable Haar Wavelet Block](assets/MVM_Unet-MLHW.drawio.png)
 
 *Figure 1 (b): illustrates the architecture of the MLHW block.*
 
