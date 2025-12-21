@@ -48,6 +48,10 @@ The .whl files of causal_conv1d and mamba_ssm could be found here. {[Baidu](http
 
 *Figure 1 (b): illustrates the architecture of the MLHW block.*
 
+![Tri-axial Spatial Attention and Channel Attention Block)](assets/MVM_Unet-TASAB_block.drawio.png)
+
+*Figure 1 (b): illustrates TASAB and CAB Module block.*
+
 ## 3. Result 
 ### Performance Comparison with SOTA on ISIC-17 Dataset 
 | **Model**                 | **mIoU ↑ (%)** | **DSC ↑ (%)** | **Acc ↑ (%)** | **Spe ↑ (%)** | **Sen ↑ (%)** |
