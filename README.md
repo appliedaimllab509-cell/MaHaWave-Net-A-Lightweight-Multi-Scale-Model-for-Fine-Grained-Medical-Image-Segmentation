@@ -50,7 +50,7 @@ The .whl files of causal_conv1d and mamba_ssm could be found here. {[Baidu](http
 
 ![Tri-axial Spatial Attention and Channel Attention Block)](assets/MVM_Unet-TASAB_block.drawio.png)
 
-*Figure 1 (b): illustrates TASAB and CAB Module block.*
+*Figure 2 : illustrates TASAB and CAB Module block.*
 
 ## 3. Result 
 <p align="center">
