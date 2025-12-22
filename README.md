@@ -1,5 +1,5 @@
 # MaHaWave-Net-A-Lightweight-Multi-Scale-Model-for-Fine-Grained-Medical-Image-Segmentation
-Code will be resealing soon..!!
+Code will be released soon !!
 
 ##  1 Ablation Study
 
