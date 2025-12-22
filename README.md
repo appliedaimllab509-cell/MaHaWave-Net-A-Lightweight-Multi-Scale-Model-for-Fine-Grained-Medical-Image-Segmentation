@@ -94,16 +94,6 @@ cd MaHaWave-Net
 python train.py  # Train and test MaHaWave-Net on the ISIC17 or ISIC18 dataset.
 ```
 
-**NOTE**: If you want to use the trained checkpoint for inference testing only and save the corresponding test images, you can follow these steps:  
-
-- **In `config_setting`**:  
-   - Set the parameter `only_test_and_save_figs` to `True`.  
-   - Fill in the path of the trained checkpoint in `best_ckpt_path`.  
-   - Specify the save path for test images in `img_save_path`.  
-
-- **Execute the script**:  
-   After setting the above parameters, you can run `train.py`.
-
 ## 7. Obtain the outputs
 - After trianing, you could obtain the results in './results/'
 
