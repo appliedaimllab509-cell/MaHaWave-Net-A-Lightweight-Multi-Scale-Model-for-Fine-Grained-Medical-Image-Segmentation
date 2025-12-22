@@ -115,5 +115,7 @@ We are grateful for the following awesome projects when implementing HaarTransF:
 
 - [VM-UNet](https://github.com/JCruan519/VM-UNet)
 - [MambaVision](https://github.com/NVlabs/MambaVision)
+- [MALUNet](https://github.com/JCruan519/MALUNet)
+
 
 
