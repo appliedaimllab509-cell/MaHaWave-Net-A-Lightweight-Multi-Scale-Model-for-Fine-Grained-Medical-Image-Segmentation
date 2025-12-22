@@ -11,9 +11,9 @@ learnable filters).*
 
 ### 2.  Per-image inference latency on GPU
 
-##1. **MaHaWave-Net (Ours)**     ===> **1.19 iteration/sec** \\
-##2. VMUNet                  ===> 2.07 iteration/sec \\
-##3. UNet                    ===> 2.11 iteration/sec \\
+##1. **MaHaWave-Net (Ours)**     ===> **1.19 iteration/sec** //
+##2. VMUNet                  ===> 2.07 iteration/sec //
+##3. UNet                    ===> 2.11 iteration/sec
 ##4. UNet++                  ===> 2.09 iteration/sec
 
 
