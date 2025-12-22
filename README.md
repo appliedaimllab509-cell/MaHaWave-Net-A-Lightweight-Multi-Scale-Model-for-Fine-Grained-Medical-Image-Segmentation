@@ -3,7 +3,7 @@ Code will be resealing soon..!!
 
 ##  Ablation Study
 
-### 1. Ablation study on Incorporating learnable Haar coefficient-based filter layers vs Static Haar Coefficient-based lauers within the MLHW block (W =With, W/O = Without)
+### 1. Ablation study on Incorporating learnable Haar coefficient-based filter layers vs Static Haar Coefficient-based layers within the MLHW block (W =With, W/O = Without)
 ![Ablation_study](assets/Ablations.png)
 
 *Table-1: Ablation on isolating the MLHW block (with and without TASAB/CAB, and with fixed vs
