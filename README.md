@@ -3,7 +3,7 @@ Code will be resealing soon..!!
 
 ##  Ablation Study
 
-### 1. Impact  Isolating MLHW (w = with Skip and w/o = Without Skip )
+### 1. Impact  Isolating MLHW (w = with and w/o = Without Skip )
 ![Ablation_study](assets/Ablations.png)
 
 *Table-1: Ablation on isolating the MLHW block (with and without TASAB/CAB, and with fixed vs
