@@ -4,9 +4,9 @@ Code will be resealing soon..!!
 ##  Ablation Study
 
 ### 1. Ablation study on Incorporating learnable Haar coefficient-based filter layers vs Static Haar Coefficient-based layers within the MLHW block (W =With, W/O = Without)
-![Ablation_study](assets/Ablations.png)
+![Ablation_study](assets/Ablations_study.png)
 
-*Table-1: Ablation on isolating the MLHW block (with and without TASAB/CAB, and with fixed vs
+*Table-1: Ablation on isolating the MLHW block (with and without TASAB/CAB, and with Static vs
 learnable filters).*
 
 ### 2.  Analysis of the inference time for a test image on ( NVIDIA GPU-H100)
