@@ -109,7 +109,7 @@ python train.py  # Train and test MaHaWave-Net on the ISIC17 or ISIC18 dataset.
 ## 7. Obtain the outputs
 - After trianing, you could obtain the results in './results/'
 
-##  4. Acknowledgement 
+##  Acknowledgement 
 
 We are grateful for the following awesome projects when implementing MaHaWave-Net:
 
