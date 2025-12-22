@@ -9,7 +9,7 @@ Code will be resealing soon..!!
 *Table-1: Ablation on isolating the MLHW block (with and without TASAB/CAB, and with fixed vs
 learnable filters).*
 
-### 2.  Analysis of the inference time for a test image on (Put NVIDIA GPU-H100)
+### 2.  Analysis of the inference time for a test image on ( NVIDIA GPU-H100)
 
 | Model                 | Iterations / sec |
 |-----------------------|------------------|
