@@ -23,7 +23,7 @@ The .whl files of causal_conv1d and mamba_ssm could be found here. {[Baidu](http
 ## 1. Prepare the dataset
 
 ### ISIC datasets
-- The ISIC17 and ISIC18 datasets, divided into a 7:3 ratio, can be found here {[Baidu](https://pan.baidu.com/s/1Y0YupaH21yDN5uldl7IcZA?pwd=dybm)}. 
+- The ISIC17 and ISIC18 datasets, divided into a 7:3 ratio.
 
 - After downloading the datasets, you are supposed to put them into './data/isic17/' and './data/isic18/', and the file format reference is as follows. (take the ISIC17 dataset as an example.)
 
@@ -90,12 +90,6 @@ To examine variations in performance metrics, we employ a strong encoder–decod
 ### 3. Impact  Isolating MLHW with Skip and Without Skip
 
 
-## 5. Prepare the pre_trained weights
-
-- The weights of the pre-trained VMamba could be downloaded from [Baidu](https://pan.baidu.com/s/1ci_YvPPEiUT2bIIK5x8Igw?pwd=wnyy) or [GoogleDrive](https://drive.google.com/drive/folders/1ZJjc7sdyd-6KfI7c8R6rDN8bcTz3QkCx?usp=sharing). After that, the pre-trained weights should be stored in './pretrained_weights/'.
-
-
-
 ## 6. Train the MaHaWave-Net
 ```bash
 cd MaHaWave-Net
@@ -115,5 +109,11 @@ python train.py  # Train and test MaHaWave-Net on the ISIC17 or ISIC18 dataset.
 ## 7. Obtain the outputs
 - After trianing, you could obtain the results in './results/'
 
+##  4. Acknowledgement 
+
+We are grateful for the following awesome projects when implementing HaarTransF:
+
+- [VM-UNet](https://github.com/JCruan519/VM-UNet)
+- [MambaVision](https://github.com/NVlabs/MambaVision)
 
 
