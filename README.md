@@ -111,7 +111,7 @@ python train.py  # Train and test MaHaWave-Net on the ISIC17 or ISIC18 dataset.
 
 ##  4. Acknowledgement 
 
-We are grateful for the following awesome projects when implementing HaarTransF:
+We are grateful for the following awesome projects when implementing MaHaWave-Net:
 
 - [VM-UNet](https://github.com/JCruan519/VM-UNet)
 - [MambaVision](https://github.com/NVlabs/MambaVision)
