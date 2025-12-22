@@ -11,7 +11,7 @@ learnable filters).*
 
 ### 2.  Analysis of the inference time for a test image on ( NVIDIA GPU-H100)
 
-| Model                 | Iterations / sec |
+| Model                 | Iterations / Sec |
 |-----------------------|------------------|
 | **MaHaWave-Net (Ours)** | **1.19** |
 | VMUNet               | 2.07 |
