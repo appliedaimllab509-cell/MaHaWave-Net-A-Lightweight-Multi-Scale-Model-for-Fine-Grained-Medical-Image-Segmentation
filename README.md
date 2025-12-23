@@ -3,10 +3,10 @@ Code will be released soon !!
 
 ##  1 Ablation Study
 
-### 1. Ablation study on Incorporating learnable Haar coefficient-based filter layers vs Static Haar Coefficient-based layers within the MLHW block (W =With, W/O = Without)
+### 1. Ablation study on Incorporating learnable Haar coefficient-based filter layers vs Static Haar Coefficient-based layers within the MLHW block (W =With, W/O = Without) [Reply to Reviewer [3F82] ].
 ![Ablation_study](assets/Ablations_study.png)
 
-### 2.  Analysis of the inference time for a test image on ( NVIDIA GPU-H100)
+### 2.  Analysis of the inference time for a test image on ( NVIDIA GPU-H100) [Reply to Reviewer [1915] ].
 
 | Model                 | Iterations / Sec |
 |-----------------------|------------------|
