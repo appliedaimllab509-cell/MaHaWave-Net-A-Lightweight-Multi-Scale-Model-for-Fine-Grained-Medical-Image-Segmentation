@@ -2,7 +2,7 @@
 Code will be resealing soon..!!
 
 ## Abstract
-In recent years, U-Net–based transformer models have achieved remarkable success in medical image segmentation by effectively capturing hierarchical features. Visual state space models have recently emerged as an efficient alternative, offering competitive accuracy with linear complexity. However, both transformer-based and Mamba-based U-Nets suffer from high computational complexity in terms of model parameters and floating-point operations. Inspired by the strengths of both approaches, we propose MaHaWave-Net, a novel and lightweight U-Net-like architecture combining Mamba state space blocks, newly designed learnable Haar Wavelet layers, and MLP layers. The proposed learnable wavelet layers efficiently capture fine-grained information by extracting approximation and detail coefficients across multiple levels, mitigating information loss and serving as a linear-complexity alternative module to the transformer self-attention module. Extensive experiments on ISIC 2017 and ISIC 2018 datasets illustrate that MaHaWave-Net comparatively outperforms existing methods. Compared to U-Net, it achieves Dice/IoU improvements of 2.09\% and 3.33\% on ISIC 2017 and 1.78\% and 2.88\% on ISIC 2018, with significantly reduced computational cost, establishing its effectiveness as a lightweight medical image segmentation model.
+In recent years, U-Net–based transformer models have achieved remarkable success in medical image segmentation by effectively capturing hierarchical features. Visual state space models have recently emerged as an efficient alternative, offering competitive accuracy with linear complexity. However, both transformer-based and Mamba-based U-Nets suffer from high computational complexity in terms of model parameters and floating-point operations. Inspired by the strengths of both approaches, we propose MaHaWave-Net, a novel and lightweight U-Net-like architecture combining \textbf{Ma}mba state space blocks, newly designed learnable \textbf{Ha}ar \textbf{Wave}let layers, and MLP layers. The proposed learnable wavelet layers efficiently capture fine-grained information by extracting approximation and detail coefficients across multiple levels, mitigating information loss and serving as a linear-complexity alternative module to the transformer self-attention module. Extensive experiments on ISIC 2017 and ISIC 2018 datasets illustrate that MaHaWave-Net show as comparable to performance existing methods.Compared to U-Net, it achieves Dice/IoU improvements of 1.83\% / 2.90\% on ISIC 2017 and 1.88\% /3.02\% on ISIC 2018, with significantly reduced computational cost, establishing its effectiveness as a lightweight medical image segmentation model.
 
 ## 0. Main Environments
 ```bash
@@ -44,7 +44,7 @@ pip install scikit-learn matplotlib thop h5py SimpleITK scikit-image medpy yacs
 
 ![Multi-scale Learnable Haar Wavelet Block](assets/MVM_Unet-MLHW.drawio.png)
 
-*Figure 1 (b): illustrates the architecture of the MLHW block.*
+*Figure 1 (b): illustrates the architecture of the Multi-Scale Haar-Like Wavelet(MLHW) block.*
 
 ![Tri-axial Spatial Attention and Channel Attention Block)](assets/MVM_Unet-TASAB_block.drawio.png)
 
